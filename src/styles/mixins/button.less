@@ -1,0 +1,35 @@
+.button-size(@padding; @font-size; @border-radius) {
+  padding: @padding;
+  font-size: @font-size;
+  border-radius: @border-radius;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  line-height: @line-height-base;
+  user-select: none;
+  .button-size(@btn-padding-base; @btn-font-size; @btn-border-radius);
+  > .@{css-prefix-icon} {
+    vertical-align: middle;
+  }
+
+  transition: color @transition-time linear, background-color @transition-time linear, border @transition-time linear,
+    box-shadow @transition-time linear;
+
+  > span {
+    vertical-align: middle;
+  }
+  &,
+  &:hover,
+  &:focus {
+    outline: 0;
+  }
+}

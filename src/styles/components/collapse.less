@@ -1,0 +1,47 @@
+@collapse-cls: ~"@{css-prefix}-collapse";
+
+.@{collapse-cls} {
+  background-color: @background-color-base;
+  border-radius: 3px;
+  border: 1px solid @border-color-base;
+
+  & > &-panel {
+    border-top: 1px solid @border-color-base;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    .@{collapse-cls}-panel-header {
+      height: 38px;
+      line-height: 38px;
+      padding-left: 16px;
+      color: #666;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+
+      > i {
+        transition: transform 0.2s ease-in-out;
+        margin-right: 14px;
+      }
+    }
+
+    .@{collapse-cls}-panel-content {
+      position: relative;
+      padding: 0 16px;
+      transition: all @transition-time @ease-in-out;
+    }
+  }
+
+  & > .@{collapse-cls}-panel-opened {
+    .@{collapse-cls}-panel-header {
+      border-bottom-color: @border-color-base;
+      > i {
+        transform: rotate(90deg);
+      }
+    }
+
+    .@{collapse-cls}-panel-content {
+    }
+  }
+}

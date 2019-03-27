@@ -1,0 +1,53 @@
+@col-cls: ~"@{css-prefix}-col";
+@row-cls: ~"@{css-prefix}-row";
+
+// vuf-row
+.@{row-cls} {
+  .make-row();
+  &-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // flex-flow: row wrap;
+    &-start {
+      justify-content: flex-start;
+    }
+    &-center {
+      justify-content: center;
+    }
+    &-end {
+      justify-content: flex-end;
+    }
+    &-space-between {
+      justify-content: space-between;
+    }
+    &-space-around {
+      justify-content: space-around;
+    }
+    &-top {
+      align-items: flex-start;
+    }
+    &-middle {
+      align-items: center;
+    }
+    &-bottom {
+      align-items: flex-end;
+    }
+  }
+}
+
+.make-col();
+
+.make-col(-xs);
+
+@media (min-width: @screen-sm-min) {
+  .make-col(-sm);
+}
+
+@media (min-width: @screen-md-min) {
+  .make-col(-md);
+}
+
+@media (min-width: @screen-lg-min) {
+  .make-col(-lg);
+}

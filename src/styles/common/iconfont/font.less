@@ -1,0 +1,23 @@
+// declare font
+@font-face {
+  font-family: @icon-font-family;
+  src: url("@{icon-font-path}/icon.ttf?v=@{icon-font-version}") format("truetype"),
+    url("@{icon-font-path}/icon.woff?v=@{icon-font-version}") format("woff"),
+    url("@{icon-font-path}/icon.svg?v=@{icon-font-version}#Ionicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.vuf-icon() {
+  font-family: @icon-font-family;
+  display: inline-block;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

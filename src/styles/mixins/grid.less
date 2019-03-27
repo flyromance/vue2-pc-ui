@@ -1,0 +1,73 @@
+@col-cls: ~"@{css-prefix}-col";
+@row-cls: ~"@{css-prefix}-row";
+
+.grid-col(@span) {
+  width: percentage(@span / 24);
+}
+
+.make-row(@gutter: @grid-gutter-width) {
+  position: relative;
+  margin-left: (@gutter / -2);
+  margin-right: (@gutter / -2);
+  height: auto;
+  display: block;
+  .clearfix;
+}
+
+.float-grid-columns(@size) {
+  .col(@index) {
+    @val: ~".@{col-cls}@{size}-@{index}";
+    .col((@index + 1), @val);
+  }
+
+  .col(@index, @list) when (@index <= @grid-columns) {
+    @val: ~".@{col-cls}@{size}-@{index}";
+    .col((@index + 1), ~"@{list}, @{val}");
+  }
+
+  .col(@index, @list) when (@index > @grid-columns) {
+    @{list} {
+      float: left;
+      flex: 0 0 auto; // 不伸缩 不放大
+    }
+  }
+
+  .col(1);
+}
+
+.loop-grid-columns(@index, @size) when (@index > 0) {
+  .@{col-cls}@{size}-@{index} {
+    display: block;
+    width: percentage(@index / @grid-columns);
+  }
+  .@{col-cls}@{size}-push-@{index} {
+    left: percentage(@index / @grid-columns);
+  }
+  .@{col-cls}@{size}-pull-@{index} {
+    right: percentage(@index / @grid-columns);
+  }
+  .@{col-cls}@{size}-offset-@{index} {
+    margin-left: percentage(@index / @grid-columns);
+  }
+  .@{col-cls}@{size}-order-@{index} {
+    order: @index;
+  }
+  .loop-grid-columns((@index - 1), @size);
+}
+
+.loop-grid-columns(@index, @size) when (@index = 0) {
+  .@{col-cls}-@{size}-@{index} {
+    display: none;
+  }
+  .@{col-cls}@{size}-push-@{index} {
+    left: auto;
+  }
+  .@{col-cls}@{size}-pull-@{index} {
+    right: auto;
+  }
+}
+
+.make-col(@size: ~"") {
+  .float-grid-columns(@size);
+  .loop-grid-columns(@grid-columns, @size);
+}

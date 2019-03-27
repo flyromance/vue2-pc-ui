@@ -1,0 +1,48 @@
+@card-cls: ~"@{css-prefix}-card";
+
+.@{card-cls} {
+  position: relative;
+  background-color: #fff;
+  border-radius: @border-radius-small;
+  transition: box-shadow @transition-time @ease-in-out;
+
+  &:hover {
+    box-shadow: @shadow-base;
+    border-color: #eee;
+  }
+
+  &-bordered {
+    border: 1px solid @border-color-base;
+  }
+
+  &-shadow {
+    box-shadow: @shadow-card;
+  }
+
+  &&-shadow:hover {
+    box-shadow: @shadow-card;
+  }
+
+  &&-dis-hover:hover {
+    box-shadow: none;
+    border-color: transparent;
+  }
+
+  &&-dis-hover&-bordered:hover {
+    border-color: @border-color-split;
+  }
+
+  &-head {
+    .content-header();
+  }
+
+  &-extra {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+  }
+
+  &-body {
+    padding: 16px;
+  }
+}

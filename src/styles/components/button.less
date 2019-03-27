@@ -1,0 +1,35 @@
+@btn-css-prefix: ~"@{css-prefix}-btn";
+
+.@{btn-css-prefix} {
+  .btn();
+
+  &-default {
+    &:hover {
+      color: @primary-color;
+      border-color: @primary-color;
+    }
+  }
+  &-dashed {
+    border-style: dashed;
+  }
+  &-primary {
+    color: #fff;
+    background: @primary-color;
+  }
+  &-info {
+    color: #fff;
+    background: @info-color;
+  }
+  &-success {
+    color: #fff;
+    background: @success-color;
+  }
+  &-warning {
+    color: #fff;
+    background: @warning-color;
+  }
+  &-error {
+    color: #fff;
+    background: @error-color;
+  }
+}

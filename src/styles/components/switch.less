@@ -1,0 +1,70 @@
+@switch-cls: ~"@{css-prefix}-switch";
+
+.@{switch-cls} {
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 22px;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+  position: relative;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    background-color: #fff;
+    transition: left @transition-time @ease-in-out, width @transition-time @ease-in-out;
+  }
+
+  &:active:after {
+    width: 26px;
+  }
+
+  &-checked {
+    background-color: @primary-color;
+
+    &:after {
+      left: 23px;
+    }
+    &:active:after {
+      left: 15px;
+    }
+
+    .@{switch-cls}-inner {
+      left: 7px;
+    }
+  }
+
+  &-inner {
+    position: absolute;
+    color: #fff;
+    left: 23px;
+  }
+
+  &-large {
+    width: 56px;
+
+    &:after {
+      width: 52px;
+      height: 52px;
+    }
+  }
+  &-small {
+    width: 28px;
+    height: 16px;
+    line-height: 14px;
+  }
+
+  &-disabled {
+    cursor: @cursor-disabled;
+    opacity: 0.4;
+  }
+}
