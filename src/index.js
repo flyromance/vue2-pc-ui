@@ -1,64 +1,71 @@
-import Icon from "./components/icon/icon.vue";
-import Button from "./components/button/button.vue";
-import ButtonGroup from "./components/button/button-group.vue";
-import Row from "./components/grid/row.vue";
-import Col from "./components/grid/col.vue";
-import Layout from "./components/layout/layout.vue";
-import Header from "./components/layout/header.vue";
-import Sider from "./components/layout/sider.vue";
-import Content from "./components/layout/content.vue";
-import Footer from "./components/layout/footer.vue";
-import Card from "./components/card/card.vue";
-import Collapse from "./components/collapse/collapse.vue";
-import Switch from "./components/switch/switch.vue";
-import Panel from "./components/collapse/Panel.vue";
-import Form from "./components/form/form.vue";
-import FormItem from "./components/form/form-item.vue";
-import Input from "./components/input/input.vue";
-import Checkbox from "./components/checkbox/checkbox.vue";
-import CheckboxGroup from "./components/checkbox/checkbox-group.vue";
-import alert from "./components/alert/alert.js";
-import TableRender from "./components/table/table-render.vue";
-import TableSlot from "./components/table/table-slot.vue";
-import Tree from "./components/tree/tree.vue";
+// 打包全量的js入口
+import Affix from './affix'
+import Button from './button'
+// import Icon from './icon/icon.vue'
+// import ButtonGroup from './button/button-group.vue'
+// import Row from './grid/row.vue'
+// import Col from './grid/col.vue'
+// import Layout from './layout/layout.vue'
+// import Header from './layout/header.vue'
+// import Sider from './layout/sider.vue'
+// import Content from './layout/content.vue'
+// import Footer from './layout/footer.vue'
+// import Card from './card/card.vue'
+// import Collapse from './collapse/collapse.vue'
+// import Switch from './switch/switch.vue'
+// import Panel from './collapse/Panel.vue'
+// import Form from './form/form.vue'
+// import FormItem from './form/form-item.vue'
+// import Input from './input/input.vue'
+// import Checkbox from './checkbox/checkbox.vue'
+// import CheckboxGroup from './checkbox/checkbox-group.vue'
+// import alert from './alert/alert.js'
+// import TableRender from './table/table-render.vue'
+// import TableSlot from './table/table-slot.vue'
+// import Tree from './tree/tree.vue'
 
 const components = {
-  Icon,
-  Button,
-  ButtonGroup,
-  Row,
-  Col,
-  Layout,
-  Header,
-  Sider,
-  Content,
-  Footer,
-  Card,
-  Collapse,
-  Switch,
-  Panel,
-  Form,
-  FormItem,
-  Input,
-  Checkbox,
-  CheckboxGroup,
-  TableRender,
-  TableSlot,
-  Tree,
-};
+  Affix,
+  Button
+  // ButtonGroup,
+  // Row,
+  // Col,
+  // Layout,
+  // Header,
+  // Sider,
+  // Content,
+  // Footer,
+  // Card,
+  // Collapse,
+  // Switch,
+  // Panel,
+  // Form,
+  // FormItem,
+  // Input,
+  // Checkbox,
+  // CheckboxGroup,
+  // TableRender,
+  // TableSlot,
+  // Tree
+}
 
 function install(Vue) {
-  Object.keys(components).forEach(item => {
-    Vue.component(components[item].name, components[item]);
-  });
+  Object.keys(components).forEach((key) => {
+    Vue.use(components[key])
+  })
 
-  Vue.prototype.$alert = alert;
+  // Vue.prototype.$alert = alert
 }
 
 const vuf = {
-  version: require("../package.json").version,
+  version: require('../package.json').version,
   install,
-  ...components
-};
+}
 
-export default vuf;
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+
+
+export default vuf

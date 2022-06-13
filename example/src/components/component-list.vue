@@ -20,9 +20,7 @@
 </template>
 
 <script>
-export default {
-  
-}
+export default {}
 </script>
 
 <style>
@@ -32,4 +30,3 @@ export default {
   font-size: 16px;
 }
 </style>
-

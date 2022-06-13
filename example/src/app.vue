@@ -2,7 +2,7 @@
   <div id="app">
     <f-layout>
       <f-header>
-        <f-icon @click.native="handleToggle" class="trigger-icon" type="md-menu"></f-icon>
+        <f-icon class="trigger-icon" type="md-menu" @click.native="handleToggle"></f-icon>
         <div class="logo">
           <h2>vuf</h2>
         </div>
@@ -11,9 +11,9 @@
       </f-header>
       <f-layout>
         <f-sider hide-trigger>
-          <component-list/>
+          <component-list />
         </f-sider>
-        <f-content :style="{padding: '20px'}">
+        <f-content :style="{ padding: '20px' }">
           <router-view></router-view>
         </f-content>
       </f-layout>
@@ -21,17 +21,16 @@
   </div>
 </template>
 
-
 <script>
-import componentList from "./components/component-list";
+import componentList from './components/component-list'
 export default {
   components: {
-    "component-list": componentList
+    'component-list': componentList
   },
   methods: {
-    handleToggle: function() {}
+    handleToggle: function () {}
   }
-};
+}
 </script>
 
 <style lang="less">
@@ -41,4 +40,3 @@ export default {
   cursor: pointer;
 }
 </style>
-
